@@ -37,31 +37,5 @@
       <rect x="22" y="146" width="130" height="36" rx="9" fill="#60A5FA" opacity="0.98"/>
       <rect x="160" y="146" width="98" height="36" rx="9" fill="#10B981" opacity="0.98"/>
     </g>
-
-    <!-- icon row -->
-    <g transform="translate(1410,324)">
-      <circle cx="0" cy="0" r="28" fill="#22D3EE" opacity="0.18"/>
-      <circle cx="86" cy="0" r="28" fill="#8B5CF6" opacity="0.18"/>
-      <circle cx="172" cy="0" r="28" fill="#10B981" opacity="0.18"/>
-
-      <!-- coding </> -->
-      <g transform="translate(-12,-11)" fill="none" stroke="#E5E7EB" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.98">
-        <path d="M6 20 L13 13 L6 6"/>
-        <path d="M19 6 L26 13 L19 20"/>
-      </g>
-      <!-- API nodes -->
-      <g transform="translate(74,-8)" fill="none" stroke="#E5E7EB" stroke-width="2.4" opacity="0.98">
-        <circle cx="0" cy="0" r="4.5"/>
-        <circle cx="24" cy="-11" r="4.5"/>
-        <circle cx="24" cy="11" r="4.5"/>
-        <line x1="5" y1="-2" x2="19" y2="-8"/>
-        <line x1="5" y1="2" x2="19" y2="8"/>
-        <line x1="24" y1="-6" x2="24" y2="6"/>
-      </g>
-      <!-- cloud -->
-      <g transform="translate(160,-6)" opacity="0.98">
-        <path d="M18 20h-8a6 6 0 1 1 2.2-11.6A7 7 0 0 1 26 13a5 5 0 0 1-8 7z" fill="#E5E7EB"/>
-      </g>
-    </g>
   </g>
 </svg>
