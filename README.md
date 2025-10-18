@@ -43,35 +43,23 @@ Focused on **backend engineering**, API design, and clean, maintainable code —
 
 ### 📊 GitHub Stats
 <p align="center">
-  <img height="165" src="https://github-readme-stats.vercel.app/api?username=YOUR_GITHUB_USERNAME&show_icons=true&theme=tokyonight" />
-  <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=YOUR_GITHUB_USERNAME&layout=compact&theme=tokyonight" />
+  <img height="165" src="https://github-readme-stats.vercel.app/api?username=adityaadharmaa&show_icons=true&theme=tokyonight" />
+  <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=adityaadharmaa&layout=compact&theme=tokyonight" />
 </p>
 
 ### 🔥 Contribution Streak
 <p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=YOUR_GITHUB_USERNAME&theme=tokyonight" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=adityaadharmaa&theme=tokyonight" />
 </p>
 
 ### 📈 Activity Graph
 <p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=YOUR_GITHUB_USERNAME&theme=tokyo-night" />
-</p>
-
----
-
-### 🚀 Featured Projects
-- **Tempatin** – Multi-tenant booking platform (kost, villa, homestay)  
-- **Foxpath** – Internship selection with **SAW** scoring  
-- **Foliox** – Personal portfolio/blog with a simple admin
-
-> Ganti tautan proyek di atas dengan repo kamu ya.
-
----
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=adityaadharmaa&theme=tokyo-night" />
 
 ### 🤝 Let’s Connect
 <p align="center">
-  <a href="https://linkedin.com/in/YOUR_LINKEDIN"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
-  <a href="mailto:YOUR_EMAIL"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white"/></a>
+  <a href="https://linkedin.com/in/adityadharmaa"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
+  <a href="mailto:agusadityadharma88@gmail.co"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white"/></a>
 </p>
 
 ---
