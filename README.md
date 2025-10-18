@@ -47,18 +47,11 @@ return [
 ];
 ```
 ---
-### 🧰 Tech Stack
-<p align="left">
-  <img src="https://img.shields.io/badge/Laravel-FF2D20?logo=laravel&logoColor=white" />
-  <img src="https://img.shields.io/badge/Node.js-339933?logo=nodedotjs&logoColor=white" />
-  <img src="https://img.shields.io/badge/Express-000000?logo=express&logoColor=white" />
-  <img src="https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB" />
-  <img src="https://img.shields.io/badge/Tailwind-38B2AC?logo=tailwindcss&logoColor=white" />
-  <img src="https://img.shields.io/badge/MySQL-005C84?logo=mysql&logoColor=white" />
-  <img src="https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white" />
-  <img src="https://img.shields.io/badge/Postman-FF6C37?logo=postman&logoColor=white" />
-</p>
+## 🧰 Tech Stack
 
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=laravel,nodejs,express,react,tailwind,mysql,git,docker,postman&perline=4" />
+</p>
 ---
 ## ✨ What I Do — API of Me
 
