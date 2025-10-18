@@ -65,13 +65,27 @@ return [
 </p>
 
 ---
+## ✨ What I Do — API of Me
 
-### ✨ What I Do
-- Design & build **scalable backend services**  
-- Create & integrate **RESTful APIs**  
-- Ship **modern, responsive** web apps (React + Tailwind)  
-- **Iterate fast** and keep learning in public
+`GET /v1/vision` → _Crafting scalable experiences_  
+- Translate ideas → **robust backends** with clean, maintainable code  
+- Design **RESTful APIs** that are clear, consistent, and secure  
+- Build **modern UIs** (React + Tailwind) that feel fast and intuitive
 
+`POST /v1/solutions` (body: `{problem}`) → `{solution}`  
+- Break down requirements → model data → define boundaries → ship iteratively  
+- Prefer **observability** (logs/metrics) & **automation** (scripts, Docker)
+
+`PUT /v1/code-quality`  
+- Enforce conventions, meaningful naming, and testable modules  
+- Keep complexity low; refactor early; measure impact
+
+`PATCH /v1/growth`  
+- Learn in public, read source, and prototype ideas regularly  
+- Fuel: **love & support from my wife and child** ❤️ — the reason I keep pushing forward
+
+`DELETE /v1/waste`  
+- Remove premature optimizations, dead code, and noisy abstractions
 ---
 
 ### 📊 GitHub Stats
