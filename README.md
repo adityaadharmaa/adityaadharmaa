@@ -16,12 +16,30 @@
 > *“Code. Learn. Improve. Repeat.”* — my everyday loop.
 
 ---
+## 🧭 About Me
 
-### 🧭 About Me
-- I turn ideas into **scalable products** with clean, maintainable code.  
-- Focused on **backend engineering**, **API design**, and smooth UX on the front.  
-- Product-minded, detail-oriented, and always experimenting to level up.
+```blade
+{{-- resources/views/components/about-me.blade.php --}}
+<x-card title="About Me">
+  <x-slot:subtitle>
+    Full-Stack Web Developer · Backend-Oriented
+  </x-slot:subtitle>
 
+  <x-stack label="Backend"  :items="['Laravel','Node.js','Express']"/>
+  <x-stack label="Frontend" :items="['React','Tailwind CSS']"/>
+  <x-stack label="Database" :items="['MySQL']"/>
+
+  <x-list>
+    <x-item>Clean, maintainable code.</x-item>
+    <x-item>Designing RESTful APIs & scalable services.</x-item>
+    <x-item>Product mindset with attention to UX.</x-item>
+  </x-list>
+
+  <x-meta label="Currently">
+    Building modern web apps with Laravel + React · Learning System Design & Clean Architecture · Fuel: Coffee ☕
+  </x-meta>
+</x-card>
+```
 ---
 
 ### 🧰 Tech Stack
