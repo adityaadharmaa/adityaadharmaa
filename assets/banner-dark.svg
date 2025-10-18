@@ -22,24 +22,50 @@
 
     <!-- headline -->
     <g font-family="Inter, Segoe UI, Arial" fill="#E5E7EB">
-      <text x="120" y="170" font-size="48" font-weight="800">Aditya Dharma — Full-Stack Creative</text>
-      <text x="120" y="220" font-size="22" opacity="0.88">
-        Backend-oriented • Laravel • Node.js • Express • React • Tailwind • MySQL
-      </text>
+      <text x="120" y="170" font-size="48" font-weight="800">Aditya Dharma</text>
+      <text x="120" y="220" font-size="26" font-weight="700" opacity="0.96">Crafting Scalable Experiences</text>
       <text x="120" y="270" font-size="18" opacity="0.72">
-        Clean architecture • RESTful APIs • Product-minded developer
+        Backend-oriented • Laravel • Node.js • Express • React • Tailwind • MySQL
       </text>
     </g>
 
-    <!-- right side illustration (simple UI card) -->
-    <g transform="translate(1320,110)">
-      <rect width="320" height="200" rx="18" fill="#111827" opacity="0.9"/>
-      <rect x="20" y="24" width="200" height="14" rx="7" fill="#22d3ee" opacity="0.95"/>
-      <rect x="20" y="54" width="280" height="10" rx="5" fill="#8b5cf6" opacity="0.75"/>
-      <rect x="20" y="78" width="260" height="10" rx="5" fill="#34d399" opacity="0.75"/>
-      <rect x="20" y="102" width="220" height="10" rx="5" fill="#f59e0b" opacity="0.8"/>
-      <rect x="20" y="144" width="120" height="36" rx="9" fill="#60a5fa" opacity="0.95"/>
-      <rect x="150" y="144" width="90" height="36" rx="9" fill="#10b981" opacity="0.95"/>
+    <!-- right: UI card -->
+    <g transform="translate(1315,96)">
+      <rect width="330" height="210" rx="18" fill="#111827" opacity="0.9"/>
+      <rect x="20" y="22" width="210" height="14" rx="7" fill="#22d3ee" opacity="0.95"/>
+      <rect x="20" y="52" width="290" height="10" rx="5" fill="#8b5cf6" opacity="0.75"/>
+      <rect x="20" y="76" width="270" height="10" rx="5" fill="#34d399" opacity="0.75"/>
+      <rect x="20" y="100" width="230" height="10" rx="5" fill="#f59e0b" opacity="0.8"/>
+      <rect x="20" y="144" width="126" height="36" rx="9" fill="#60a5fa" opacity="0.95"/>
+      <rect x="156" y="144" width="96" height="36" rx="9" fill="#10b981" opacity="0.95"/>
+    </g>
+
+    <!-- icon row (coding, API, cloud) -->
+    <g transform="translate(1425,320)">
+      <circle cx="0" cy="0" r="26" fill="#22d3ee" opacity="0.16" />
+      <circle cx="75" cy="0" r="26" fill="#8b5cf6" opacity="0.16" />
+      <circle cx="150" cy="0" r="26" fill="#34d399" opacity="0.16" />
+
+      <!-- coding icon </> -->
+      <g transform="translate(-10,-10)" fill="none" stroke="#E5E7EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.95">
+        <path d="M6 20 L12 14 L6 8"/>
+        <path d="M18 8 L24 14 L18 20"/>
+      </g>
+
+      <!-- API icon -->
+      <g transform="translate(65,-8)" fill="none" stroke="#E5E7EB" stroke-width="2" opacity="0.95">
+        <circle cx="0" cy="0" r="4"/>
+        <circle cx="22" cy="-10" r="4"/>
+        <circle cx="22" cy="10" r="4"/>
+        <line x1="4" y1="-2" x2="18" y2="-8"/>
+        <line x1="4" y1="2" x2="18" y2="8"/>
+        <line x1="22" y1="-6" x2="22" y2="6"/>
+      </g>
+
+      <!-- cloud icon -->
+      <g transform="translate(140,-4)" opacity="0.95">
+        <path d="M18 20h-8a6 6 0 1 1 2.2-11.6A7 7 0 0 1 26 13a5 5 0 0 1-8 7z" fill="#E5E7EB"/>
+      </g>
     </g>
   </g>
 </svg>
