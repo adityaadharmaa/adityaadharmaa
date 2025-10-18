@@ -52,7 +52,9 @@ return [
 <p align="center">
   <img src="https://skillicons.dev/icons?i=laravel,nodejs,express,react,tailwind,mysql,git,docker,postman&perline=4" />
 </p>
+
 ---
+
 ## ✨ What I Do — API of Me
 
 `GET /v1/vision` → _Crafting scalable experiences_  
