@@ -96,6 +96,14 @@ return [
 
 ---
 
+## 📌 Featured Projects (auto-updated)
+
+<!-- FEATURED:START -->
+<!-- Will be replaced by GitHub Actions -->
+<!-- FEATURED:END -->
+
+---
+
 ### 📊 GitHub Stats
 <p align="left">
   <img height="152" src="https://github-readme-stats.vercel.app/api?username=adityaadharmaa&show_icons=true&rank_icon=percentile&hide_border=false&theme=tokyonight" />
