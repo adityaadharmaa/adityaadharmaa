@@ -50,7 +50,7 @@ return [
 ## 🧰 Tech Stack
 
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=laravel,nodejs,express,react,tailwind,mysql,git,docker,postman&perline=4" />
+  <img src="https://skillicons.dev/icons?i=laravel,nodejs,express,react,tailwind,mysql,postgresql,git,github,docker,postman&perline=4" />
 </p>
 
 ---
