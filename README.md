@@ -1,4 +1,7 @@
-<!-- Banner: auto switch light/dark -->
+<p align="center">
+  <img src="https://raw.githubusercontent.com/adityaadharmaa/adityaadharmaa/output/snake.svg" alt="snake animation"/>
+</p>
+
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg" />
