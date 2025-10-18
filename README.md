@@ -9,11 +9,25 @@
 
 ---
 
-## Hi 👋, I'm Aditya Dharma
+<h1 align="center">🚀 Aditya Dharma</h1>
 
-**🚀 Full-Stack Web Developer | Backend-Oriented | Constant Learner**
+<p align="center">
+  <strong>Full-Stack Web Developer</strong> <br/>
+  <em>Building scalable backend systems and modern web apps with Laravel, Node.js, and React.</em>
+</p>
 
-> *“Code. Learn. Improve. Repeat.”* — my everyday loop.
+<p align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&pause=1200&center=true&vCenter=true&width=700&lines=🚀+Full-Stack+Developer;🧠+Backend-Oriented+Problem+Solver;✨+Crafting+Scalable+Experiences" alt="Typing SVG" />
+</p>
+
+<p align="center">
+  <a href="https://linkedin.com/in/adityadharmaa">
+    <img src="https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" />
+  </a>
+  <a href="mailto:agusadityadharma88@gmail.com">
+    <img src="https://img.shields.io/badge/Email-Contact-D14836?style=for-the-badge&logo=gmail&logoColor=white" />
+  </a>
+</p>
 
 ---
 ## 🧭 About Me
