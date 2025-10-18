@@ -18,30 +18,35 @@
 ---
 ## 🧭 About Me
 
-```blade
-{{-- resources/views/components/about-me.blade.php --}}
-<x-card title="About Me">
-  <x-slot:subtitle>
-    Full-Stack Web Developer · Backend-Oriented
-  </x-slot:subtitle>
+```php
+<?php
 
-  <x-stack label="Backend"  :items="['Laravel','Node.js','Express']"/>
-  <x-stack label="Frontend" :items="['React','Tailwind CSS']"/>
-  <x-stack label="Database" :items="['MySQL']"/>
+return [
+    'name'   => 'Aditya Dharma',
+    'role'   => 'Full-Stack Web Developer (backend-oriented)',
+    'mantra' => 'Code. Learn. Improve. Repeat.',
 
-  <x-list>
-    <x-item>Clean, maintainable code.</x-item>
-    <x-item>Designing RESTful APIs & scalable services.</x-item>
-    <x-item>Product mindset with attention to UX.</x-item>
-  </x-list>
+    'stack' => [
+        'backend'  => ['Laravel', 'Node.js', 'Express'],
+        'frontend' => ['React', 'Tailwind CSS'],
+        'database' => ['MySQL'],
+    ],
 
-  <x-meta label="Currently">
-    Building modern web apps with Laravel + React · Learning System Design & Clean Architecture · Fuel: Coffee ☕
-  </x-meta>
-</x-card>
+    'focus' => [
+        'clean_code',
+        'scalable_services',
+        'restful_api_design',
+        'product_mindset',
+    ],
+
+    'currently' => [
+        'building' => 'Modern web apps with Laravel + React',
+        'learning' => ['System Design', 'Clean Architecture'],
+        'fuel'     => 'The endless love and support from my wife and child — my greatest motivation to keep pushing forward.',
+    ],
+];
 ```
 ---
-
 ### 🧰 Tech Stack
 **Backend:** Laravel • Node.js • Express  
 **Database:** MySQL  
