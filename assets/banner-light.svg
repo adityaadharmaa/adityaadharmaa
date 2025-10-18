@@ -40,7 +40,5 @@
       <rect x="20" y="144" width="126" height="36" rx="9" fill="#3b82f6" opacity="0.9"/>
       <rect x="156" y="144" width="96" height="36" rx="9" fill="#10b981" opacity="0.9"/>
     </g>
-
-    <!-- icon row (coding, API, cloud) -->
-    
+    </g>
 </svg>
