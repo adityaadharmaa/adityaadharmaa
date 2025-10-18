@@ -68,6 +68,12 @@
 </p>
 
 ---
+<table>
+  <tr>
+    <td><img height="152" src="https://github-readme-stats.vercel.app/api?username=adityaadharmaa&show_icons=true&rank_icon=percentile&theme=tokyonight"></td>
+    <td><img height="152" src="https://github-readme-stats.vercel.app/api/top-langs/?username=adityaadharmaa&layout=compact&langs_count=8&theme=tokyonight"></td>
+  </tr>
+</table>
 
 ### 🔗 Let’s Connect
 <p>
