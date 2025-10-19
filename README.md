@@ -31,35 +31,40 @@
 
 ---
 ## 🧭 About Me
+<div align="center">
+
+<table>
+<tr><td>
 
 ```php
 <?php
 
 return [
-    'name'   => 'Aditya Dharma',
-    'role'   => 'Full-Stack Web Developer (backend-oriented)',
-    'mantra' => 'Code. Learn. Improve. Repeat.',
+  'name'   => 'Aditya Dharma',
+  'role'   => 'Full-Stack Web Developer (backend-oriented)',
+  'mantra' => 'Code. Learn. Improve. Repeat.',
 
-    'stack' => [
-        'backend'  => ['Laravel', 'Node.js', 'Express'],
-        'frontend' => ['React', 'Tailwind CSS'],
-        'database' => ['MySQL'],
-    ],
+  'stack' => [
+    'backend'  => ['Laravel', 'Node.js', 'Express'],
+    'frontend' => ['React', 'Tailwind CSS'],
+    'database' => ['MySQL'],
+  ],
 
-    'focus' => [
-        'clean_code',
-        'scalable_services',
-        'restful_api_design',
-        'product_mindset',
-    ],
+  'focus' => [
+    'clean_code',
+    'scalable_services',
+    'restful_api_design',
+    'product_mindset',
+  ],
 
-    'currently' => [
-        'building' => 'Modern web apps with Laravel + React',
-        'learning' => ['System Design', 'Clean Architecture'],
-        'fuel'     => 'The endless love and support from my wife and child — my greatest motivation to keep pushing forward.',
-    ],
+  'currently' => [
+    'building' => 'Modern web apps with Laravel + React',
+    'learning' => ['System Design', 'Clean Architecture'],
+    'fuel'     => 'The endless love and support from my wife and child — my greatest motivation to keep pushing forward.',
+  ],
 ];
 ```
+
 ---
 ## 🧰 Tech Stack
 
