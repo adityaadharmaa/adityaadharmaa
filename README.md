@@ -31,43 +31,14 @@
 
 ---
 ## 🧭 About Me
-<div align="center">
 
-<table>
-<tr>
-  <td>
-
-```php
-<?php
-
-return [
-  'name'   => 'Aditya Dharma',
-  'role'   => 'Full-Stack Web Developer (backend-oriented)',
-  'mantra' => 'Code. Learn. Improve. Repeat.',
-
-  'stack' => [
-    'backend'  => ['Laravel', 'Node.js', 'Express'],
-    'frontend' => ['React', 'Tailwind CSS'],
-    'database' => ['MySQL'],
-  ],
-
-  'focus' => [
-    'clean_code',
-    'scalable_services',
-    'restful_api_design',
-    'product_mindset',
-  ],
-
-  'currently' => [
-    'building' => 'Modern web apps with Laravel + React',
-    'learning' => ['System Design', 'Clean Architecture'],
-    'fuel'     => 'The endless love and support from my wife and child — my greatest motivation to keep pushing forward.',
-  ],
-];
-```
-  </td>
- </tr>
-</div>
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/aboutme-vscode-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="assets/aboutme-vscode-light.svg" />
+    <img alt="About Me — VSCode style" src="assets/aboutme-vscode-light.svg" />
+  </picture>
+</p>
 
 ---
 ## 🧰 Tech Stack
