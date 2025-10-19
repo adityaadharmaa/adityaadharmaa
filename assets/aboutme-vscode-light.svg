@@ -1,58 +1,56 @@
-<svg width="960" height="460" viewBox="0 0 960 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="About Me (VSCode Light)">
-  <rect x="0" y="0" width="960" height="460" fill="#F8FAFC"/>
-  <rect x="20" y="20" width="920" height="36" rx="8" ry="8" fill="#E5E7EB" stroke="#CBD5E1" />
-  <circle cx="40" cy="38" r="6" fill="#FF5F57"/>
-  <circle cx="60" cy="38" r="6" fill="#FFBD2E"/>
-  <circle cx="80" cy="38" r="6" fill="#28C840"/>
-  <text x="100" y="42" font-family="Consolas, 'Fira Code', Menlo, monospace" font-size="14" fill="#0F172A">about.php — Aditya Dharma</text>
-  <rect x="20" y="56" width="920" height="384" rx="8" ry="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+<svg width="900" height="420" viewBox="0 0 900 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="About Me (VSCode Light)">
+  <defs>
+    <filter id="softL" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000" flood-opacity=".15"/>
+    </filter>
+  </defs>
 
-  <g font-family="Consolas, 'Fira Code', Menlo, monospace" font-size="13" fill="#94A3B8">
-    <text x="36" y="86">1</text><text x="36" y="106">2</text><text x="36" y="126">3</text><text x="36" y="146">4</text>
-    <text x="36" y="166">5</text><text x="36" y="186">6</text><text x="36" y="206">7</text><text x="36" y="226">8</text>
-    <text x="36" y="246">9</text><text x="30" y="266">10</text><text x="30" y="286">11</text><text x="30" y="306">12</text>
-    <text x="30" y="326">13</text><text x="30" y="346">14</text><text x="30" y="366">15</text><text x="30" y="386">16</text>
-    <text x="30" y="406">17</text>
-  </g>
+  <rect width="900" height="420" fill="#f8fafc"/>
 
-  <g font-family="Consolas, 'Fira Code', Menlo, monospace" font-size="14">
-    <text x="70" y="86"  fill="#4F46E5">&lt;?php</text>
-    <text x="70" y="110" fill="#2563EB">return</text>
-    <text x="140" y="110" fill="#0F172A">[</text>
+  <g filter="url(#softL)">
+    <rect x="16" y="16" width="868" height="388" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+    <rect x="16" y="16" width="868" height="36" rx="10" fill="#e5e7eb" stroke="#cbd5e1"/>
+    <circle cx="36" cy="34" r="6" fill="#ff5f57"/>
+    <circle cx="56" cy="34" r="6" fill="#ffbd2e"/>
+    <circle cx="76" cy="34" r="6" fill="#28c840"/>
+    <text x="96" y="37" font-family="JetBrains Mono, Fira Code, Consolas, monospace" font-size="13" fill="#0f172a">about.php — Aditya Dharma</text>
 
-    <text x="100" y="134" fill="#0284C7">'name'</text>
-    <text x="170" y="134" fill="#64748B">=&gt;</text>
-    <text x="210" y="134" fill="#B45309">'Aditya Dharma'</text>
-    <text x="390" y="134" fill="#0F172A">,</text>
+    <rect x="16" y="52" width="868" height="352" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+    <rect x="16" y="52" width="64" height="352" rx="10" fill="#f1f5f9" stroke="#cbd5e1"/>
 
-    <text x="100" y="158" fill="#0284C7">'role'</text>
-    <text x="170" y="158" fill="#64748B">=&gt;</text>
-    <text x="210" y="158" fill="#B45309">'Full-Stack Web Developer (backend-oriented)'</text>
-    <text x="710" y="158" fill="#0F172A">,</text>
+    <g font-family="JetBrains Mono, Fira Code, Consolas, monospace" font-size="13" fill="#94a3b8" text-anchor="end">
+      <text x="70" y="82">1</text><text x="70" y="104">2</text><text x="70" y="126">3</text><text x="70" y="148">4</text>
+      <text x="70" y="170">5</text><text x="70" y="192">6</text><text x="70" y="214">7</text><text x="70" y="236">8</text>
+      <text x="70" y="258">9</text><text x="70" y="280">10</text><text x="70" y="302">11</text><text x="70" y="324">12</text>
+      <text x="70" y="346">13</text><text x="70" y="368">14</text><text x="70" y="390">15</text>
+    </g>
 
-    <text x="100" y="182" fill="#0284C7">'mantra'</text>
-    <text x="190" y="182" fill="#64748B">=&gt;</text>
-    <text x="230" y="182" fill="#B45309">'Code. Learn. Improve. Repeat.'</text>
-    <text x="550" y="182" fill="#0F172A">,</text>
+    <g font-family="JetBrains Mono, Fira Code, Consolas, monospace" font-size="14" xml:space="preserve">
+      <style>
+        .k{fill:#2563eb;} .s{fill:#b45309;} .p{fill:#0f172a;} .id{fill:#0284c7;} .op{fill:#64748b;}
+      </style>
 
-    <text x="100" y="206" fill="#0284C7">'stack'</text>
-    <text x="170" y="206" fill="#64748B">=&gt;</text>
-    <text x="210" y="206" fill="#0F172A">[ 'backend' =&gt; ['Laravel','Node.js','Express'],</text>
-    <text x="210" y="226" fill="#0F172A">  'frontend' =&gt; ['React','Tailwind CSS'],</text>
-    <text x="210" y="246" fill="#0F172A">  'database' =&gt; ['MySQL','PostgreSQL'], ],</text>
+      <text x="92" y="82"><tspan class="p">&lt;?php</tspan></text>
 
-    <text x="100" y="270" fill="#0284C7">'focus'</text>
-    <text x="170" y="270" fill="#64748B">=&gt;</text>
-    <text x="210" y="270" fill="#0F172A">[ 'clean_code','scalable_services','restful_api_design','product_mindset' ],</text>
+      <text x="92"  y="106"><tspan class="k">return</tspan><tspan class="p"> [</tspan></text>
 
-    <text x="100" y="294" fill="#0284C7">'currently'</text>
-    <text x="200" y="294" fill="#64748B">=&gt;</text>
-    <text x="240" y="294" fill="#0F172A">[</text>
-    <text x="260" y="314" fill="#0F172A">'building' =&gt; 'Modern web apps with Laravel + React',</text>
-    <text x="260" y="334" fill="#0F172A">'learning' =&gt; ['System Design','Clean Architecture'],</text>
-    <text x="260" y="354" fill="#0F172A">'fuel' =&gt; 'Love &amp; support from my wife and child',</text>
-    <text x="240" y="374" fill="#0F172A">],</text>
+      <text x="120" y="128"><tspan class="id">'name'     </tspan><tspan class="op">=&gt; </tspan><tspan class="s">'Aditya Dharma'</tspan><tspan class="p">,</tspan></text>
+      <text x="120" y="150"><tspan class="id">'role'     </tspan><tspan class="op">=&gt; </tspan><tspan class="s">'Full-Stack Web Developer (backend-oriented)'</tspan><tspan class="p">,</tspan></text>
+      <text x="120" y="172"><tspan class="id">'mantra'   </tspan><tspan class="op">=&gt; </tspan><tspan class="s">'Code. Learn. Improve. Repeat.'</tspan><tspan class="p">,</tspan></text>
 
-    <text x="140" y="398" fill="#0F172A">];</text>
+      <text x="120" y="194"><tspan class="id">'stack'    </tspan><tspan class="op">=&gt; </tspan><tspan class="p">[</tspan></text>
+      <text x="148" y="216"><tspan class="p"> 'backend'  =&gt; ['Laravel','Node.js','Express'],</tspan></text>
+      <text x="148" y="238"><tspan class="p"> 'frontend' =&gt; ['React','Tailwind CSS'],</tspan></text>
+      <text x="148" y="260"><tspan class="p"> 'database' =&gt; ['MySQL','PostgreSQL'],</tspan></text>
+      <text x="120" y="282"><tspan class="p">],</tspan></text>
+
+      <text x="120" y="304"><tspan class="id">'focus'    </tspan><tspan class="op">=&gt; </tspan><tspan class="p">['clean_code','scalable_services','restful_api_design','product_mindset'],</tspan></text>
+
+      <text x="120" y="326"><tspan class="id">'currently'</tspan><tspan class="op">=&gt; </tspan><tspan class="p">[ 'building' =&gt; 'Modern web apps with Laravel + React',</tspan></text>
+      <text x="148" y="348"><tspan class="p">             'learning' =&gt; ['System Design','Clean Architecture'],</tspan></text>
+      <text x="148" y="370"><tspan class="p">             'fuel'     =&gt; 'Love &amp; support from my wife and child', ],</tspan></text>
+
+      <text x="92"  y="392"><tspan class="p">];</tspan></text>
+    </g>
   </g>
 </svg>
