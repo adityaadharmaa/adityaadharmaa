@@ -2,10 +2,10 @@ name: Update Featured Projects
 
 on:
   schedule:
-    - cron: "0 0 * * *"
-  workflow_dispatch:
+    - cron: "0 0 * * *"   # jalan tiap hari 00:00 UTC
+  workflow_dispatch:       # bisa run manual
   push:
-    branches: ["main"]
+    branches: ["main"]     # juga jalan saat ada push ke main
 
 permissions:
   contents: write
@@ -47,52 +47,61 @@ jobs:
                 }
               }
             `;
+
             const data = await github.graphql(query, { login: owner });
             const repos = (data.repositoryOwner.repositories.nodes || []).slice(0, 3);
 
-            // 2) Helper: hapus indent kiri agar tidak jadi code block di Markdown
-            const stripLeft = (s) =>
-              s.split('\n')
-               .map(line => line.replace(/^\s+/, ''))  // trimStart tiap baris
-               .join('\n')
-               .trim();
+            // 2) Helper: hapus indent kiri supaya tidak jadi code block di Markdown
+            function stripLeft(s) {
+              return s.split('\n').map(line => line.replace(/^\s+/, '')).join('\n').trim();
+            }
 
-            // 3) Template kartu HTML (tanpa indent kiri)
-            const card = (r) => stripLeft(String.raw`
-<a href="${r.url}">
-<div style="border:1px solid #e5e7eb;border-radius:12px;padding:14px;margin:6px;min-width:260px;max-width:360px;display:inline-block;vertical-align:top;text-decoration:none;">
-  <div style="font-weight:700;font-size:16px;margin-bottom:6px;color:#0f172a;">${r.name}</div>
-  <div style="font-size:13px;opacity:.85;min-height:38px;margin-bottom:10px;color:#334155;">${(r.description || '').replace(/`/g,"'")}</div>
-  <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
-    ${r.primaryLanguage ? String.raw`<span style="display:inline-flex;align-items:center;gap:6px;font-size:12px;color:#334155;">
-      <span style="width:10px;height:10px;border-radius:999px;background:${r.primaryLanguage.color || '#999'};"></span>${r.primaryLanguage.name}
-    </span>` : String.raw``}
-    <img alt="stars" src="https://img.shields.io/github/stars/${owner}/${encodeURIComponent(r.name)}?style=social" />
-    <img alt="forks" src="https://img.shields.io/github/forks/${owner}/${encodeURIComponent(r.name)}?style=social" />
-    <span style="font-size:12px;color:#64748b;">Updated: ${new Date(r.updatedAt).toISOString().slice(0,10)}</span>
-  </div>
-</div>
-</a>`);
+            // 3) Build kartu HTML TANPA backticks (aman untuk YAML)
+            function card(r) {
+              const desc = (r.description || '').replace(/`/g, "'");
+              const lang = r.primaryLanguage
+                ? '<span style="display:inline-flex;align-items:center;gap:6px;font-size:12px;color:#334155;">'
+                  + '<span style="width:10px;height:10px;border-radius:999px;background:' + (r.primaryLanguage.color || '#999') + ';"></span>'
+                  + r.primaryLanguage.name
+                  + '</span>'
+                : '';
 
-            const grid = stripLeft(String.raw`
-<div align="center">
-${repos.map(card).join('\n')}
-</div>`);
+              let html = '';
+              html += '<a href="' + r.url + '">\n';
+              html += '<div style="border:1px solid #e5e7eb;border-radius:12px;padding:14px;margin:6px;min-width:260px;max-width:360px;display:inline-block;vertical-align:top;text-decoration:none;">\n';
+              html += '  <div style="font-weight:700;font-size:16px;margin-bottom:6px;color:#0f172a;">' + r.name + '</div>\n';
+              html += '  <div style="font-size:13px;opacity:.85;min-height:38px;margin-bottom:10px;color:#334155;">' + desc + '</div>\n';
+              html += '  <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">\n';
+              html += '    ' + lang + '\n';
+              html += '    <img alt="stars" src="https://img.shields.io/github/stars/' + owner + '/' + encodeURIComponent(r.name) + '?style=social" />\n';
+              html += '    <img alt="forks" src="https://img.shields.io/github/forks/' + owner + '/' + encodeURIComponent(r.name) + '?style=social" />\n';
+              html += '    <span style="font-size:12px;color:#64748b;">Updated: ' + new Date(r.updatedAt).toISOString().slice(0,10) + '</span>\n';
+              html += '  </div>\n';
+              html += '</div>\n';
+              html += '</a>';
+              return stripLeft(html);
+            }
 
-            // 4) Replace antara marker
+            const grid = stripLeft(
+              '<div align="center">\n'
+              + repos.map(card).join('\n')
+              + '\n</div>'
+            );
+
+            // 4) Replace isi antara marker
             const fs = require('fs');
-            const path = './README.md';
+            const PATH = './README.md';
             const START = '<!-- FEATURED:START -->';
             const END   = '<!-- FEATURED:END -->';
-            const readme = fs.readFileSync(path, 'utf8');
-            const regex = new RegExp(`${START}[\\s\\S]*?${END}`);
-            const next  = `${START}\n${grid}\n${END}`;
+            const readme = fs.readFileSync(PATH, 'utf8');
+            const regex = new RegExp(START + '[\\s\\S]*?' + END);
+            const next  = START + '\n' + grid + '\n' + END;
 
             if (!regex.test(readme)) {
               core.setFailed('Markers not found in README.md (FEATURED:START/END)');
             } else {
               const updated = readme.replace(regex, next);
-              fs.writeFileSync(path, updated);
+              fs.writeFileSync(PATH, updated);
               core.setOutput('updated', 'true');
             }
 
