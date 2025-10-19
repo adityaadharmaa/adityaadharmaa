@@ -109,25 +109,25 @@ return [
 ---
 
 ### 📊 GitHub Stats
-<p align="left">
+<p align="center">
   <img height="152" src="https://github-readme-stats.vercel.app/api?username=adityaadharmaa&show_icons=true&rank_icon=percentile&hide_border=false&theme=tokyonight" />
   <img height="152" src="https://github-readme-stats.vercel.app/api/top-langs/?username=adityaadharmaa&layout=compact&langs_count=8&theme=tokyonight" />
 </p>
 
 ### 🔥 Contribution Streak
-<p>
+<p align="center">
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=adityaadharmaa&theme=tokyonight" />
 </p>
 
 ### 📈 Activity Graph
-<p>
+<p align="center">
   <img src="https://github-readme-activity-graph.vercel.app/graph?username=adityaadharmaa&theme=tokyo-night&radius=8" />
 </p>
 
 ---
 
 ### 🔗 Let’s Connect
-<p>
+<p align="center">
   <a href="https://linkedin.com/in/adityadharmaa">
     <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" />
   </a>
