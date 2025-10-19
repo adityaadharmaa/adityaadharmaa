@@ -101,16 +101,7 @@ return [
 <!-- FEATURED:START -->
 <div align="center">
 <a href="https://github.com/adityaadharmaa/adityaadharmaa">
-<div style="border:1px solid #e5e7eb;border-radius:12px;padding:14px;margin:6px;min-width:260px;max-width:360px;display:inline-block;vertical-align:top;text-decoration:none;">
-<div style="font-weight:700;font-size:16px;margin-bottom:6px;color:#0f172a;">adityaadharmaa</div>
-<div style="font-size:13px;opacity:.85;min-height:38px;margin-bottom:10px;color:#334155;"></div>
-<div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
-
-<img alt="stars" src="https://img.shields.io/github/stars/adityaadharmaa/adityaadharmaa?style=social" />
-<img alt="forks" src="https://img.shields.io/github/forks/adityaadharmaa/adityaadharmaa?style=social" />
-<span style="font-size:12px;color:#64748b;">Updated: 2025-10-19</span>
-</div>
-</div>
+<img src="https://github-readme-stats.vercel.app/api/pin/?username=adityaadharmaa&repo=adityaadharmaa&theme=tokyonight" alt="adityaadharmaa card" />
 </a>
 </div>
 <!-- FEATURED:END -->
