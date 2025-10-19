@@ -2,10 +2,10 @@ name: Update Featured Projects
 
 on:
   schedule:
-    - cron: "0 0 * * *"   # runs daily at 00:00 UTC
-  workflow_dispatch:       # allows manual trigger from Actions tab
+    - cron: "0 0 * * *"
+  workflow_dispatch:
   push:
-    branches: ["main"]     # runs on push to main branch
+    branches: ["main"]
 
 permissions:
   contents: write
@@ -24,7 +24,7 @@ jobs:
           script: |
             const owner = context.repo.owner;
 
-            // Fetch latest public repos (non-forks), sorted by push time
+            // 1) Ambil 3 repo publik terbaru (bukan fork)
             const query = `
               query($login: String!) {
                 repositoryOwner(login: $login) {
@@ -47,55 +47,53 @@ jobs:
                 }
               }
             `;
+            const data = await github.graphql(query, { login: owner });
+            const repos = (data.repositoryOwner.repositories.nodes || []).slice(0, 3);
 
-            try {
-              const data = await github.graphql(query, { login: owner });
-              const repos = (data.repositoryOwner.repositories.nodes || []).slice(0, 3);
+            // 2) Helper: hapus indent kiri agar tidak jadi code block di Markdown
+            const stripLeft = (s) =>
+              s.split('\n')
+               .map(line => line.replace(/^\s+/, ''))  // trimStart tiap baris
+               .join('\n')
+               .trim();
 
-              const card = (r) => {
-                const description = r.description ? r.description.replace(/`/g, "'") : '';
-                return `
-                  <a href="${r.url}">
-                    <div style="border:1px solid #e5e7eb;border-radius:12px;padding:14px;margin:6px;min-width:260px;max-width:360px;display:inline-block;vertical-align:top;text-decoration:none;">
-                      <div style="font-weight:700;font-size:16px;margin-bottom:6px;color:#0f172a;">${r.name}</div>
-                      <div style="font-size:13px;opacity:.85;min-height:38px;margin-bottom:10px;color:#334155;">${description}</div>
-                      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
-                        ${r.primaryLanguage ? `
-                          <span style="display:inline-flex;align-items:center;gap:6px;font-size:12px;color:#334155;">
-                            <span style="width:10px;height:10px;border-radius:999px;background:${r.primaryLanguage.color || '#999'};"></span>
-                            ${r.primaryLanguage.name}
-                          </span>
-                        ` : ''}
-                        <img alt="stars" src="https://img.shields.io/github/stars/${owner}/${encodeURIComponent(r.name)}?style=social" />
-                        <img alt="forks" src="https://img.shields.io/github/forks/${owner}/${encodeURIComponent(r.name)}?style=social" />
-                        <span style="font-size:12px;color:#64748b;">Updated: ${new Date(r.updatedAt).toISOString().slice(0,10)}</span>
-                      </div>
-                    </div>
-                  </a>
-                `.trim();
-              };
+            // 3) Template kartu HTML (tanpa indent kiri)
+            const card = (r) => stripLeft(String.raw`
+<a href="${r.url}">
+<div style="border:1px solid #e5e7eb;border-radius:12px;padding:14px;margin:6px;min-width:260px;max-width:360px;display:inline-block;vertical-align:top;text-decoration:none;">
+  <div style="font-weight:700;font-size:16px;margin-bottom:6px;color:#0f172a;">${r.name}</div>
+  <div style="font-size:13px;opacity:.85;min-height:38px;margin-bottom:10px;color:#334155;">${(r.description || '').replace(/`/g,"'")}</div>
+  <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+    ${r.primaryLanguage ? String.raw`<span style="display:inline-flex;align-items:center;gap:6px;font-size:12px;color:#334155;">
+      <span style="width:10px;height:10px;border-radius:999px;background:${r.primaryLanguage.color || '#999'};"></span>${r.primaryLanguage.name}
+    </span>` : String.raw``}
+    <img alt="stars" src="https://img.shields.io/github/stars/${owner}/${encodeURIComponent(r.name)}?style=social" />
+    <img alt="forks" src="https://img.shields.io/github/forks/${owner}/${encodeURIComponent(r.name)}?style=social" />
+    <span style="font-size:12px;color:#64748b;">Updated: ${new Date(r.updatedAt).toISOString().slice(0,10)}</span>
+  </div>
+</div>
+</a>`);
 
-              const grid = `<div align="center">\n${repos.map(card).join('\n')}\n</div>`;
+            const grid = stripLeft(String.raw`
+<div align="center">
+${repos.map(card).join('\n')}
+</div>`);
 
-              // Replace content between markers FEATURED:START and FEATURED:END
-              const fs = require('fs');
-              const path = './README.md';
-              const start = '<!-- FEATURED:START -->';
-              const end = '<!-- FEATURED:END -->';
-              const readme = fs.readFileSync(path, 'utf8');
-              const regex = new RegExp(`${start}[\\s\\S]*?${end}`);
-              const next = `${start}\n${grid}\n${end}`;
+            // 4) Replace antara marker
+            const fs = require('fs');
+            const path = './README.md';
+            const START = '<!-- FEATURED:START -->';
+            const END   = '<!-- FEATURED:END -->';
+            const readme = fs.readFileSync(path, 'utf8');
+            const regex = new RegExp(`${START}[\\s\\S]*?${END}`);
+            const next  = `${START}\n${grid}\n${END}`;
 
-              if (!regex.test(readme)) {
-                throw new Error('Markers not found in README.md (FEATURED:START/END)');
-              }
-
+            if (!regex.test(readme)) {
+              core.setFailed('Markers not found in README.md (FEATURED:START/END)');
+            } else {
               const updated = readme.replace(regex, next);
               fs.writeFileSync(path, updated);
               core.setOutput('updated', 'true');
-              
-            } catch (error) {
-              core.setFailed(`Action failed with error: ${error.message}`);
             }
 
       - name: Commit changes
