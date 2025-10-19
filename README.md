@@ -34,7 +34,8 @@
 <div align="center">
 
 <table>
-<tr><td>
+<tr>
+  <td>
 
 ```php
 <?php
@@ -64,6 +65,9 @@ return [
   ],
 ];
 ```
+  </td>
+ </tr>
+</div>
 
 ---
 ## 🧰 Tech Stack
