@@ -80,14 +80,14 @@
 
 <!-- FEATURED:START -->
 <div align="center">
+<a href="https://github.com/adityaadharmaa/foxpath-backend">
+<img src="https://github-readme-stats.vercel.app/api/pin/?username=adityaadharmaa&repo=foxpath-backend&theme=tokyonight" alt="foxpath-backend card" />
+</a>
 <a href="https://github.com/adityaadharmaa/adityaadharmaa">
 <img src="https://github-readme-stats.vercel.app/api/pin/?username=adityaadharmaa&repo=adityaadharmaa&theme=tokyonight" alt="adityaadharmaa card" />
 </a>
 <a href="https://github.com/adityaadharmaa/foxpath">
 <img src="https://github-readme-stats.vercel.app/api/pin/?username=adityaadharmaa&repo=foxpath&theme=tokyonight" alt="foxpath card" />
-</a>
-<a href="https://github.com/adityaadharmaa/foxpath-backend">
-<img src="https://github-readme-stats.vercel.app/api/pin/?username=adityaadharmaa&repo=foxpath-backend&theme=tokyonight" alt="foxpath-backend card" />
 </a>
 </div>
 <!-- FEATURED:END -->
