@@ -59,13 +59,15 @@ jobs:
             }
 
             function card(repo) {
+              const STATS_BASE = "https://github-readme-stats-seven-theta-91.vercel.app";
+
               const src =
-                "https://github-readme-stats.vercel.app/api/pin/?username="
+                STATS_BASE
+                + "/api/pin/?username="
                 + owner
                 + "&repo="
                 + encodeURIComponent(repo.name)
-                + "&theme=tokyonight"
-                + "&cache_seconds=21600"; // 6 jam
+                + "&theme=tokyonight";
 
               return stripLeft(`
                 <a href="${repo.url}">
