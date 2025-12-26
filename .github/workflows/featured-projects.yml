@@ -54,19 +54,20 @@ jobs:
 
             // ===== KARTU GAMBAR ALA PINNED (dinamis) =====
             function card(r) {
-              const src =
-                "https://github-readme-stats.vercel.app/api/pin/?username="
-                + owner
-                + "&repo="
-                + encodeURIComponent(r.name)
-                + "&theme=tokyonight"; // bisa: radical, dark, dracula, cobalt, dll
-
-              let html = '';
-              html += '<a href="' + r.url + '">\n';
-              html += '  <img src="' + src + '" alt="' + r.name + ' card" />\n';
-              html += '</a>';
-              return stripLeft(html);
-            }
+                  const src =
+                    "https://github-readme-stats.vercel.app/api/pin/?username="
+                    + owner
+                    + "&repo="
+                    + encodeURIComponent(r.name)
+                    + "&theme=tokyonight"
+                    + "&cache_seconds=1800";
+                
+                  let html = '';
+                  html += '<a href="' + r.url + '">\n';
+                  html += '  <img src="' + src + '" alt="' + r.name + ' card" />\n';
+                  html += '</a>';
+                  return stripLeft(html);
+                }
 
             const grid = stripLeft(
               '<div align="center">\n'
