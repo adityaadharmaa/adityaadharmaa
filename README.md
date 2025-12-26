@@ -102,12 +102,12 @@
 
 ### 🔥 Contribution Streak
 <p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=adityaadharmaa&theme=tokyonight" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=adityaadharmaa&theme=tokyonight&hide_border=true" />
 </p>
 
 ### 📈 Activity Graph
 <p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=adityaadharmaa&theme=tokyo-night&radius=8" />
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=adityaadharmaa&theme=tokyo-night&include_all_commits=true&hide_border=true" />
 </p>
 
 ---
