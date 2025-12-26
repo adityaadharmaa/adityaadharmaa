@@ -96,8 +96,8 @@
 
 ### 📊 GitHub Stats
 <p align="center">
-  <img height="152" src="https://github-readme-stats.vercel.app/api?username=adityaadharmaa&show_icons=true&rank_icon=percentile&hide_border=false&theme=tokyonight" />
-  <img height="152" src="https://github-readme-stats.vercel.app/api/top-langs/?username=adityaadharmaa&layout=compact&langs_count=8&theme=tokyonight" />
+ <img src="https://github-readme-stats-seven-theta-91.vercel.app/api?username=adityaadharmaa&show_icons=true&theme=tokyonight" />
+
 </p>
 
 ### 🔥 Contribution Streak
