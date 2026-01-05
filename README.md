@@ -1,3 +1,14 @@
+
+<div align="center">
+  
+<a href="https://github.com/adityaadharmaa/adityaadharmaa">
+  <img src="https://github-readme-stats.vercel.app/api/pin/?username=adityaadharmaa&repo=adityaadharmaa&theme=tokyonight" alt="adityaadharmaa" height="120" loading="lazy" />
+</a>
+  
+<a href="https://github.com/adityaadharmaa/foxpath-backend">
+  <img src="https://github-readme-stats.vercel.app/api/pin/?username=adityaadharmaa&repo=foxpath-backend&theme=tokyonight" alt="foxpath-backend" height="120" loading="lazy" />
+</a>
+</div>
 <!-- Banner: auto light/dark -->
 <p align="center">
   <picture>
