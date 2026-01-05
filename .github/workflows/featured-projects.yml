@@ -1,78 +1,80 @@
-name: Update Featured Projects (Final Fix)
+name: Update Featured Projects
 
 on:
   schedule:
-    - cron: '0 16 * * *' # 00:00 WITA
+    # 00:00 WITA = 16:00 UTC
+    - cron: '0 16 * * *'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
-  build:
+  update-featured:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Generate Projects
+      - name: Generate Featured Projects
         uses: actions/github-script@v7
         with:
           script: |
             const fs = require('fs');
-            // Menggunakan server 91 yang sudah terbukti jalan
-            const STATS_BASE = "https://github-readme-stats-seven-theta-91.vercel.app";
+
+            const STATS_BASE = 'https://github-readme-stats-seven-theta-91.vercel.app';
             const owner = context.repo.owner;
 
-            const { data: repos } = await github.rest.search.repos({
-              q: `user:${owner} fork:false`, // Cari repo milik user, bukan fork
+            const { data } = await github.rest.search.repos({
+              q: `user:${owner} fork:false`,
               sort: 'updated',
               order: 'desc',
               per_page: 3
             });
 
-            function card(repo) {
-              const src = `${STATS_BASE}/api/pin/?username=${owner}&repo=${encodeURIComponent(repo.name)}&theme=tokyonight`;
-              return `
-            <a href="${repo.html_url}">
-              <img src="${src}" alt="${repo.name}" height="120" loading="lazy" />
-            </a>`;
+            function renderCard(repo) {
+              const img = `${STATS_BASE}/api/pin/?username=${owner}&repo=${repo.name}&theme=tokyonight`;
+              return `<a href="${repo.html_url}">
+              <img src="${img}" height="120" loading="lazy" />
+              </as`;
             }
 
-            const content = `
-            <div align="center">
-              ${repos.items.map(card).join('\n  ')}
-            </div>
-            `.trim();
+            const featuredContent = `<div align="center">
+            ${data.items.map(renderCard).join('\n')}
+            </div>`;
 
             const readmePath = 'README.md';
-            let readme = fs.readFileSync(readmePath, 'utf8');
+            const readme = fs.readFileSync(readmePath, 'utf8');
 
-            // --- PERUBAHAN UTAMA DISINI ---
-            // Kita pakai nama marker yang UNIK agar bot tidak bingung
-            const startMarker = '';
-            const endMarker = '';
-            
-            // Mencari marker tersebut di file
-            const regex = new RegExp(`${startMarker}[\\s\\S]*?${endMarker}`);
-            
+            const startMarker = '<!-- FEATURED_PROJECTS_START -->';
+            const endMarker = '<!-- FEATURED_PROJECTS_END -->';
+
+            const regex = new RegExp(
+              `${startMarker}[\\s\\S]*?${endMarker}`,
+              'm'
+            );
+
             if (!regex.test(readme)) {
-              console.log("Marker UPDATE_TERBARU tidak ditemukan. Cek README anda.");
-              return;
+              throw new Error('Marker FEATURED_PROJECTS tidak ditemukan di README.md');
             }
 
-            // Timpa isinya
-            const newReadme = readme.replace(regex, `${startMarker}\n${content}\n${endMarker}`);
-            
-            if (newReadme !== readme) {
-              fs.writeFileSync(readmePath, newReadme);
-              console.log("README berhasil di-update.");
+            const updatedReadme = readme.replace(
+              regex,
+              `${startMarker}\n${featuredContent}\n${endMarker}`
+            );
+
+            if (updatedReadme !== readme) {
+              fs.writeFileSync(readmePath, updatedReadme);
+              console.log('Featured Projects berhasil di-update');
+            } else {
+              console.log('Tidak ada perubahan');
             }
 
       - name: Commit and Push changes
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
           git add README.md
-          git commit -m "chore: fix featured projects location" || exit 0
+          git commit -m "chore: update featured projects (auto)" || exit 0
           git push
