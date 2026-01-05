@@ -1,16 +1,3 @@
-
-<div align="center">
-  
-<a href="https://github.com/adityaadharmaa/adityaadharmaa">
-  <img src="https://github-readme-stats-seven-theta-91.vercel.app/api/pin/?username=adityaadharmaa&repo=adityaadharmaa&theme=tokyonight" alt="adityaadharmaa" height="120" loading="lazy" />
-</a>
-  
-<a href="https://github.com/adityaadharmaa/foxpath-backend">
-  <img src="https://github-readme-stats-seven-theta-91.vercel.app/api/pin/?username=adityaadharmaa&repo=foxpath-backend&theme=tokyonight" alt="foxpath-backend" height="120" loading="lazy" />
-</a>
-</div>
-
-<!-- Banner: auto light/dark -->
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg" />
@@ -57,8 +44,7 @@
 
 <p align="center">
   <img src="https://skillicons.dev/icons?i=laravel,nodejs,express,react,tailwind,mysql,postgresql,git,github,docker,postman&perline=4" />
-</>
-
+</p>
   
 ---
 
@@ -90,16 +76,11 @@
 
 ## 📌 Featured Projects (auto-updated)
 
-<!-- FEATURED:START -->
-
-<!-- FEATURED:END -->
-
 ---
 
 ### 📊 GitHub Stats
 <p align="center">
  <img src="https://github-readme-stats-seven-theta-91.vercel.app/api?username=adityaadharmaa&show_icons=true&theme=tokyonight" />
-
 </p>
 
 ### 🔥 Contribution Streak
@@ -111,7 +92,6 @@
 ### 📈 Activity Graph
 <p align="center">
   <img src="https://github-readme-activity-graph.vercel.app/graph?username=adityaadharmaa&theme=tokyo-night&include_all_commits=true" />
-
 </p>
 
 ---
@@ -130,7 +110,6 @@
 
 <p align="left"><i>⭐ Building meaningful solutions — one commit at a time.</i></p>
 
-<!-- Optional: Snake animation -->
 <p align="center">
   <img src="https://raw.githubusercontent.com/adityaadharmaa/adityaadharmaa/output/snake.svg" alt="snake animation" />
 </p>
