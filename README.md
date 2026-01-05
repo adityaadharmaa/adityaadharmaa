@@ -87,7 +87,6 @@
 
 ## 📌 Featured Projects (auto-updated)
 <!-- FEATURED_PROJECTS_START -->
-
 <!-- FEATURED_PROJECTS_END -->
 ---
 
