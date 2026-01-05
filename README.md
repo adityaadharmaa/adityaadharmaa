@@ -1,24 +1,3 @@
-
-<div align="center">
-  
-<a href="https://github.com/adityaadharmaa/adityaadharmaa">
-  <img src="https://github-readme-stats-seven-theta-91.vercel.app/api/pin/?username=adityaadharmaa&repo=adityaadharmaa&theme=tokyonight" alt="adityaadharmaa" height="120" loading="lazy" />
-</a>
-  
-<a href="https://github.com/adityaadharmaa/foxpath-backend">
-  <img src="https://github-readme-stats-seven-theta-91.vercel.app/api/pin/?username=adityaadharmaa&repo=foxpath-backend&theme=tokyonight" alt="foxpath-backend" height="120" loading="lazy" />
-</a>
-</div>
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="assets/banner-light.svg" />
-    <img alt="Aditya Dharma — Crafting Scalable Experiences" src="assets/banner-light.svg" />
-  </picture>
-</p>
-
----
-
 <h1 align="center">🚀 Aditya Dharma</h1>
 
 <p align="center">
@@ -87,16 +66,7 @@
 
 ## 📌 Featured Projects (auto-updated)
 <!-- FEATURED_PROJECTS_START -->
-<div align="center">
 
-    <a href="https://github.com/adityaadharmaa/adityaadharmaa">
-      <img src="https://github-readme-stats-seven-theta-91.vercel.app/api/pin/?username=adityaadharmaa&repo=adityaadharmaa&theme=tokyonight" height="120" loading="lazy" />
-    </a>
-
-    <a href="https://github.com/adityaadharmaa/foxpath-backend">
-      <img src="https://github-readme-stats-seven-theta-91.vercel.app/api/pin/?username=adityaadharmaa&repo=foxpath-backend&theme=tokyonight" height="120" loading="lazy" />
-    </a>
-</div>
 <!-- FEATURED_PROJECTS_END -->
 ---
 
