@@ -1,9 +1,8 @@
-name: Update Featured Projects (Last Updated)
+name: Update Featured Projects (Fixed Location)
 
 on:
   schedule:
-    # 00:00 WITA = 16:00 UTC
-    - cron: '0 16 * * *'
+    - cron: '0 16 * * *' # 00:00 WITA
   workflow_dispatch:
 
 jobs:
@@ -22,11 +21,11 @@ jobs:
           script: |
             const fs = require('fs');
             
-            // SAYA UBAH KE URL SERVER YANG JALAN DI PROFIL ANDA
+            // Server yang terbukti jalan di profil Anda
             const STATS_BASE = "https://github-readme-stats-seven-theta-91.vercel.app";
             const owner = context.repo.owner;
 
-            // Ambil repo terakhir di-update, non-fork
+            // Ambil repo
             const { data: repos } = await github.rest.search.repos({
               q: `user:${owner} fork:false`,
               sort: 'updated',
@@ -34,12 +33,10 @@ jobs:
               per_page: 3
             });
 
-            console.log(`Found ${repos.items.length} repos updated recently.`);
+            console.log(`Found ${repos.items.length} repos.`);
 
             function card(repo) {
-              // Menggunakan URL yang sama dengan Stats Anda agar konsisten
               const src = `${STATS_BASE}/api/pin/?username=${owner}&repo=${encodeURIComponent(repo.name)}&theme=tokyonight`;
-              
               return `
             <a href="${repo.html_url}">
               <img src="${src}" alt="${repo.name}" height="120" loading="lazy" />
@@ -55,27 +52,23 @@ jobs:
             const readmePath = 'README.md';
             let readme = fs.readFileSync(readmePath, 'utf8');
 
-            // --- PERBAIKAN MARKER SESUAI README ANDA ---
+            // --- KITA GUNAKAN MARKER BARU YANG UNIK ---
+            // Ini kuncinya agar tidak tertukar dengan yang di atas
             const startMarker = '';
             const endMarker = '';
             
             const regex = new RegExp(`${startMarker}[\\s\\S]*?${endMarker}`);
             
             if (!regex.test(readme)) {
-              console.log("Marker FEATURED tidak ditemukan di README.md");
+              console.log("Marker MY_PROJECTS tidak ditemukan. Pastikan Anda sudah update README.");
               return;
             }
 
-            const newReadme = readme.replace(regex, `${startMarker}\n${content}\n${endReadme = endMarker}`);
+            const newReadme = readme.replace(regex, `${startMarker}\n${content}\n${endMarker}`);
             
-            // Koreksi string replace agar end marker tetap ada
-             const finalReadme = readme.replace(regex, `${startMarker}\n${content}\n${endMarker}`);
-
-            if (finalReadme !== readme) {
-              fs.writeFileSync(readmePath, finalReadme);
+            if (newReadme !== readme) {
+              fs.writeFileSync(readmePath, newReadme);
               console.log("README updated locally.");
-            } else {
-              console.log("No changes detected.");
             }
 
       - name: Commit and Push changes
@@ -83,5 +76,5 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add README.md
-          git commit -m "chore: update featured projects" || exit 0
+          git commit -m "chore: update featured projects location" || exit 0
           git push
