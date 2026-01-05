@@ -1,22 +1,89 @@
-  name: Generate Featured Projects (topic-based)
-  uses: actions/github-script@v7
-  with:
-    script: |
-      const STATS_BASE = "https://github-readme-stats-seven-theta-91.vercel.app";
-      const owner = context.repo.owner;
+name: Update Featured Projects (Last Updated)
 
-      function card(repo) {
-        const src =
-          STATS_BASE
-          + "/api/pin/?username="
-          + owner
-          + "&repo="
-          + encodeURIComponent(repo.name)
-          + "&theme=tokyonight";
+on:
+  schedule:
+    # 00:00 WITA = 16:00 UTC
+    - cron: '0 16 * * *'
+  workflow_dispatch: # Tombol manual untuk testing
 
-        return `
-<a href="${repo.url}">
-  <img src="${src}" alt="${repo.name}" loading="lazy" />
-</a>
-        `.trim();
-      }
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Wajib: agar bot bisa edit README.md
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Generate Last Updated Projects
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            
+            // Menggunakan server official agar gambar tidak broken
+            const STATS_BASE = "https://github-readme-stats.vercel.app";
+            const owner = context.repo.owner;
+
+            // --- BAGIAN UTAMA YANG DIUBAH ---
+            // Mengambil repo berdasarkan update terakhir
+            const { data: repos } = await github.rest.search.repos({
+              q: `user:${owner} fork:false`, // fork:false agar hanya project asli buatan Anda (bukan hasil fork)
+              sort: 'updated',  // Urutkan berdasarkan yang terakhir diedit
+              order: 'desc',    // Dari yang paling baru ke lama
+              per_page: 3       // Ambil 3 saja
+            });
+
+            console.log(`Found ${repos.items.length} repos updated recently.`);
+            repos.items.forEach(r => console.log(`- ${r.name} (Updated: ${r.updated_at})`));
+
+            // Fungsi membuat tampilan kartu
+            function card(repo) {
+              // Menggunakan theme 'tokyonight'
+              const src = `${STATS_BASE}/api/pin/?username=${owner}&repo=${encodeURIComponent(repo.name)}&theme=tokyonight`;
+              
+              return `
+            <a href="${repo.html_url}">
+              <img src="${src}" alt="${repo.name}" height="120" loading="lazy" />
+            </a>`;
+            }
+
+            // Susun konten (Center align)
+            const content = `
+            <div align="center">
+              ${repos.items.map(card).join('\n  ')}
+            </div>
+            `.trim();
+
+            // Baca dan update README.md
+            const readmePath = 'README.md';
+            let readme = fs.readFileSync(readmePath, 'utf8');
+
+            const startMarker = '';
+            const endMarker = '';
+            
+            const regex = new RegExp(`${startMarker}[\\s\\S]*?${endMarker}`);
+            
+            if (!regex.test(readme)) {
+              console.log("Marker tidak ditemukan di README.md");
+              return; // Stop jika tidak ada marker
+            }
+
+            const newReadme = readme.replace(regex, `${startMarker}\n${content}\n${endMarker}`);
+            
+            // Tulis file hanya jika ada perubahan
+            if (newReadme !== readme) {
+              fs.writeFileSync(readmePath, newReadme);
+              console.log("README updated locally.");
+            } else {
+              console.log("No changes detected.");
+            }
+
+      - name: Commit and Push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "chore: update featured projects (last updated)" || exit 0
+          git push
