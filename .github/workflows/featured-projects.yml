@@ -23,11 +23,9 @@ jobs:
           script: |
             const fs = require('fs');
 
-            // GitHub Readme Stats self-hosted
-            const STATS_BASE = "https://github-readme-stats-seven-theta-91.vercel.app";
+            const STATS_BASE = 'https://github-readme-stats-seven-theta-91.vercel.app';
             const owner = context.repo.owner;
 
-            // Ambil 3 repo terakhir yang aktif (bukan fork)
             const { data } = await github.rest.search.repos({
               q: `user:${owner} fork:false`,
               sort: 'updated',
@@ -37,17 +35,14 @@ jobs:
 
             function renderCard(repo) {
               const img = `${STATS_BASE}/api/pin/?username=${owner}&repo=${repo.name}&theme=tokyonight`;
-              return `
-                <a href="${repo.html_url}">
-                  <img src="${img}" height="120" loading="lazy" />
-                </a>`;
+              return `<a href="${repo.html_url}">
+              <img src="${img}" height="120" loading="lazy" />
+              </as`;
             }
 
-            const featuredContent = `
-            <div align="center">
+            const featuredContent = `<div align="center">
             ${data.items.map(renderCard).join('\n')}
-            </div>
-            `.trim();
+            </div>`;
 
             const readmePath = 'README.md';
             const readme = fs.readFileSync(readmePath, 'utf8');
@@ -55,27 +50,25 @@ jobs:
             const startMarker = '<!-- FEATURED_PROJECTS_START -->';
             const endMarker = '<!-- FEATURED_PROJECTS_END -->';
 
-            const markerRegex = new RegExp(
+            const regex = new RegExp(
               `${startMarker}[\\s\\S]*?${endMarker}`,
               'm'
             );
 
-            if (!markerRegex.test(readme)) {
-              throw new Error(
-                '❌ Marker FEATURED_PROJECTS tidak ditemukan di README.md'
-              );
+            if (!regex.test(readme)) {
+              throw new Error('Marker FEATURED_PROJECTS tidak ditemukan di README.md');
             }
 
             const updatedReadme = readme.replace(
-              markerRegex,
+              regex,
               `${startMarker}\n${featuredContent}\n${endMarker}`
             );
 
             if (updatedReadme !== readme) {
               fs.writeFileSync(readmePath, updatedReadme);
-              console.log('✅ Featured Projects berhasil di-update');
+              console.log('Featured Projects berhasil di-update');
             } else {
-              console.log('ℹ️ Tidak ada perubahan pada Featured Projects');
+              console.log('Tidak ada perubahan');
             }
 
       - name: Commit and Push changes
