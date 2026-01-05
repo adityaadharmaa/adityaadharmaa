@@ -4,13 +4,13 @@ on:
   schedule:
     # 00:00 WITA = 16:00 UTC
     - cron: '0 16 * * *'
-  workflow_dispatch: # Tombol manual untuk testing
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # Wajib: agar bot bisa edit README.md
+      contents: write
 
     steps:
       - name: Checkout code
@@ -22,25 +22,22 @@ jobs:
           script: |
             const fs = require('fs');
             
-            // Menggunakan server official agar gambar tidak broken
-            const STATS_BASE = "https://github-readme-stats.vercel.app";
+            // SAYA UBAH KE URL SERVER YANG JALAN DI PROFIL ANDA
+            const STATS_BASE = "https://github-readme-stats-seven-theta-91.vercel.app";
             const owner = context.repo.owner;
 
-            // --- BAGIAN UTAMA YANG DIUBAH ---
-            // Mengambil repo berdasarkan update terakhir
+            // Ambil repo terakhir di-update, non-fork
             const { data: repos } = await github.rest.search.repos({
-              q: `user:${owner} fork:false`, // fork:false agar hanya project asli buatan Anda (bukan hasil fork)
-              sort: 'updated',  // Urutkan berdasarkan yang terakhir diedit
-              order: 'desc',    // Dari yang paling baru ke lama
-              per_page: 3       // Ambil 3 saja
+              q: `user:${owner} fork:false`,
+              sort: 'updated',
+              order: 'desc',
+              per_page: 3
             });
 
             console.log(`Found ${repos.items.length} repos updated recently.`);
-            repos.items.forEach(r => console.log(`- ${r.name} (Updated: ${r.updated_at})`));
 
-            // Fungsi membuat tampilan kartu
             function card(repo) {
-              // Menggunakan theme 'tokyonight'
+              // Menggunakan URL yang sama dengan Stats Anda agar konsisten
               const src = `${STATS_BASE}/api/pin/?username=${owner}&repo=${encodeURIComponent(repo.name)}&theme=tokyonight`;
               
               return `
@@ -49,32 +46,33 @@ jobs:
             </a>`;
             }
 
-            // Susun konten (Center align)
             const content = `
             <div align="center">
               ${repos.items.map(card).join('\n  ')}
             </div>
             `.trim();
 
-            // Baca dan update README.md
             const readmePath = 'README.md';
             let readme = fs.readFileSync(readmePath, 'utf8');
 
+            // --- PERBAIKAN MARKER SESUAI README ANDA ---
             const startMarker = '';
             const endMarker = '';
             
             const regex = new RegExp(`${startMarker}[\\s\\S]*?${endMarker}`);
             
             if (!regex.test(readme)) {
-              console.log("Marker tidak ditemukan di README.md");
-              return; // Stop jika tidak ada marker
+              console.log("Marker FEATURED tidak ditemukan di README.md");
+              return;
             }
 
-            const newReadme = readme.replace(regex, `${startMarker}\n${content}\n${endMarker}`);
+            const newReadme = readme.replace(regex, `${startMarker}\n${content}\n${endReadme = endMarker}`);
             
-            // Tulis file hanya jika ada perubahan
-            if (newReadme !== readme) {
-              fs.writeFileSync(readmePath, newReadme);
+            // Koreksi string replace agar end marker tetap ada
+             const finalReadme = readme.replace(regex, `${startMarker}\n${content}\n${endMarker}`);
+
+            if (finalReadme !== readme) {
+              fs.writeFileSync(readmePath, finalReadme);
               console.log("README updated locally.");
             } else {
               console.log("No changes detected.");
@@ -85,5 +83,5 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add README.md
-          git commit -m "chore: update featured projects (last updated)" || exit 0
+          git commit -m "chore: update featured projects" || exit 0
           git push
