@@ -67,14 +67,14 @@
 ## 📌 Featured Projects (auto-updated)
 <!-- FEATURED_PROJECTS_START -->
 <div align="center">
+<a href="https://github.com/adityaadharmaa/SadewasHub-Backend-v2">
+  <img src="https://github-readme-stats-seven-theta-91.vercel.app/api/pin/?username=adityaadharmaa&repo=SadewasHub-Backend-v2&theme=tokyonight" height="120" loading="lazy" />
+  </as
 <a href="https://github.com/adityaadharmaa/adityaadharmaa">
   <img src="https://github-readme-stats-seven-theta-91.vercel.app/api/pin/?username=adityaadharmaa&repo=adityaadharmaa&theme=tokyonight" height="120" loading="lazy" />
   </as
 <a href="https://github.com/adityaadharmaa/SadwasHub-backend">
   <img src="https://github-readme-stats-seven-theta-91.vercel.app/api/pin/?username=adityaadharmaa&repo=SadwasHub-backend&theme=tokyonight" height="120" loading="lazy" />
-  </as
-<a href="https://github.com/adityaadharmaa/SadewasHub">
-  <img src="https://github-readme-stats-seven-theta-91.vercel.app/api/pin/?username=adityaadharmaa&repo=SadewasHub&theme=tokyonight" height="120" loading="lazy" />
   </as
 </div>
 <!-- FEATURED_PROJECTS_END -->
