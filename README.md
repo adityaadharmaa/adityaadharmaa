@@ -70,11 +70,11 @@
 <a href="https://github.com/adityaadharmaa/adityaadharmaa">
   <img src="https://github-readme-stats-seven-theta-91.vercel.app/api/pin/?username=adityaadharmaa&repo=adityaadharmaa&theme=tokyonight" height="120" loading="lazy" />
   </as
-<a href="https://github.com/adityaadharmaa/foxpath-backend">
-  <img src="https://github-readme-stats-seven-theta-91.vercel.app/api/pin/?username=adityaadharmaa&repo=foxpath-backend&theme=tokyonight" height="120" loading="lazy" />
-  </as
 <a href="https://github.com/adityaadharmaa/foxpath">
   <img src="https://github-readme-stats-seven-theta-91.vercel.app/api/pin/?username=adityaadharmaa&repo=foxpath&theme=tokyonight" height="120" loading="lazy" />
+  </as
+<a href="https://github.com/adityaadharmaa/foxpath-backend">
+  <img src="https://github-readme-stats-seven-theta-91.vercel.app/api/pin/?username=adityaadharmaa&repo=foxpath-backend&theme=tokyonight" height="120" loading="lazy" />
   </as
 </div>
 <!-- FEATURED_PROJECTS_END -->
